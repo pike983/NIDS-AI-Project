@@ -17,6 +17,10 @@ class DataParser:
         pass
 
     def format(self):
+         # Convert categories to useable data
+        self.dataset_file['proto'] = pd.factorize(self.dataset_file['proto'])[0]
+        self.dataset_file['state'] = pd.factorize(self.dataset_file['state'])[0]
+        self.dataset_file['service'] = pd.factorize(self.dataset_file['service'])[0]
         # Fill in blank integer values with zero where appropriate
         self.dataset_file['ct_ftp_cmd'] = pd.to_numeric(self.dataset_file['ct_ftp_cmd'],errors='coerce')
         self.dataset_file['ct_ftp_cmd'] = self.dataset_file['ct_ftp_cmd'].fillna(0)
@@ -24,15 +28,12 @@ class DataParser:
         self.dataset_file['ct_flw_http_mthd'] = self.dataset_file['ct_flw_http_mthd'].fillna(0)
         # Drop rows and columns as appropriate
         self.dataset_file['sport'] = pd.to_numeric(self.dataset_file['sport'],errors='coerce')
-        self.dataset_file['sport'].dropna(inplace=True)
+        #self.dataset_file['sport'].dropna(axis=0,inplace=True)
         #self.dataset_file['sport'] = self.dataset_file['sport'].fillna(0)
         self.dataset_file['dsport'] = pd.to_numeric(self.dataset_file['dsport'],errors='coerce')
-        self.dataset_file['dsport'].dropna(inplace=True)
+        #self.dataset_file['dsport].dropna(axis=0,inplace=True)
+        self.dataset_file.dropna(subset=['sport','dsport'],inplace=True)
         self.dataset_file.drop(['is_ftp_login', 'srcip', 'dstip'], axis=1, inplace=True)
-        # Convert categories to useable data
-        self.dataset_file['proto'] = pd.factorize(self.dataset_file['proto'])[0]
-        self.dataset_file['state'] = pd.factorize(self.dataset_file['state'])[0]
-        self.dataset_file['service'] = pd.factorize(self.dataset_file['service'])[0]
         pass
 
     def label(self):
