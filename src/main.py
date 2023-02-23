@@ -1,6 +1,7 @@
 # Main script for development and testing
 import pandas as pd
 import numpy as np
+from sklearn import metrics
 from sklearn.feature_selection import RFE
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.pipeline import Pipeline
@@ -21,34 +22,44 @@ from DataSplitter import DataSplitter
 # test_set.label()
 # col_names = train_set.dataset_file.columns
 # x_names = col_names[1:-2]
-# y_names = col_names[-2:]
+# y_names = col_names[-1:]
 # X_train = train_set.dataset_file[x_names]
 # y_train = train_set.dataset_file[y_names]
 # X_test = test_set.dataset_file[x_names]
 # y_test = test_set.dataset_file[y_names]
 ### Code to format and split the data set into test and training sets ###
-database = DataParser("UNSW-NB15-BALANCED-TRAIN.csv")#, col_names)
-database.format()
-database.label()
-db = database.dataset_file
-ds = DataSplitter(db)
-ds.test['attack_cat'] = database.labeler.inverse_transform(ds.test['attack_cat'])
-ds.train['attack_cat'] = database.labeler.inverse_transform(ds.train['attack_cat'])
+# database = DataParser("UNSW-NB15-BALANCED-TRAIN.csv")#, col_names)
+# database.format()
+# database.label()
+# db = database.dataset_file
+# ds = DataSplitter(db)
+# ds.test['attack_cat'] = database.labeler.inverse_transform(ds.test['attack_cat'])
+# ds.train['attack_cat'] = database.labeler.inverse_transform(ds.train['attack_cat'])
 
-pd.DataFrame.to_csv(ds.train, "Unified-Train-Set.csv")
-pd.DataFrame.to_csv(ds.test, "Unified-Test-Set.csv")
+# pd.DataFrame.to_csv(ds.train, "Unified-Train-Set.csv")
+# pd.DataFrame.to_csv(ds.test, "Unified-Test-Set.csv")
 ### RFE Code ###
-# rfe = RFE(estimator=DecisionTreeClassifier(),n_features_to_select=5)
+# rfe = RFE(estimator=DecisionTreeClassifier(),n_features_to_select=10)
 # model = DecisionTreeClassifier()
 # # Setup pipelines
 # pipeline = Pipeline(steps=[('s',rfe),('m',model)])
-# Ghost in the machine
-# print(X_train.info())
-# print(y_train.info())
+# # Ghost in the machine
 # pipeline.fit(X_train, y_train)
 # y_pred = pipeline.predict(X_test)
-# for idx in range(y_pred.__size__()):
-#     print(idx)
+# print("---Attack labeling---")
+# print(rfe.get_feature_names_out())
+# print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test, y_pred)*100))
+# print(metrics.classification_report(y_test, y_pred))
+# y_names = col_names[-2:-1]
+# y_train = train_set.dataset_file[y_names]
+# y_test = test_set.dataset_file[y_names]
+# pipeline.fit(X_train,y_train)
+# y_pred = pipeline.predict(X_test)
+# print("---Category labeling---")
+# print(rfe.get_feature_names_out())
+# print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test, y_pred)*100))
+# print(metrics.classification_report(y_test, y_pred))
+
 print("END")
 
 # ???
