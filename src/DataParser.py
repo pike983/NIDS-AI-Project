@@ -11,9 +11,14 @@ class DataParser:
         self.labeler = LabelEncoder()
         # self.col_names = col_names
         self.dataset_file = pd.read_csv(file_path)#, names=self.col_names, usecols=self.col_names)
+        self.dataset_file['attack_cat'] = self.dataset_file.loc[:,'attack_cat'].str.strip().fillna('None')
         pass
 
     def __del__(self):
+        pass
+
+    def feature_select(self):
+        self.dataset_file.loc[:,'attack_cat'].str.strip().fillna('None')
         pass
 
     def format(self):
@@ -38,3 +43,6 @@ class DataParser:
 
     def label(self):
         self.dataset_file['attack_cat'] = self.labeler.fit_transform(self.dataset_file['attack_cat'])
+
+    def relabel(self, ypred):
+        return self.labeler.inverse_transform(ypred)
