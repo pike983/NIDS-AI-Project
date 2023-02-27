@@ -18,19 +18,20 @@ train_set.label()
 test_set.label()
 validation_set.label()
 
-label_features = ['sport','dsport','sttl','Sload','Dload','smeansz','Stime','Sintpkt','synack','ct_state_ttl']
-cat_features = ['sport','dsport','sbytes','dbytes','sttl','service','smeansz','dmeansz','Stime','Ltime']
-
 print("--- Seperating datasets ---")
-X_l_train = train_set.dataset_file[label_features]
-X_l_test = test_set.dataset_file[label_features]
-y_l_train = train_set.dataset_file['Label']
-y_l_test = test_set.dataset_file['Label']
+X_l_train, X_c_train = train_set.feature_select()
+X_l_test, X_c_test = test_set.feature_select()
+y_l_train, y_c_train = train_set.label_select()
+y_l_test, y_c_test = test_set.label_select()
+# X_l_train = train_set.dataset_file[label_features]
+# X_l_test = test_set.dataset_file[label_features]
+# y_l_train = train_set.dataset_file['Label']
+# y_l_test = test_set.dataset_file['Label']
 
-X_c_train = train_set.dataset_file[cat_features]
-X_c_test = test_set.dataset_file[cat_features]
-y_c_train = train_set.dataset_file['attack_cat']
-y_c_test = test_set.dataset_file['attack_cat']
+# X_c_train = train_set.dataset_file[cat_features]
+# X_c_test = test_set.dataset_file[cat_features]
+# y_c_train = train_set.dataset_file['attack_cat']
+# y_c_test = test_set.dataset_file['attack_cat']
 model = GaussianNB()
 
 print("--- Label prediction in progress ---")
@@ -45,4 +46,6 @@ y_c_pred = model.fit(X_c_train, y_c_train).predict(X_c_test)
 
 print("--- Classification prediction analysis ---")
 print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_c_test, y_c_pred)*100))
+y_c_test = test_set.relabel(y_c_test)
+y_c_pred = test_set.relabel(y_c_pred)
 print(metrics.classification_report(y_c_test, y_c_pred))

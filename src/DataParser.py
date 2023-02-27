@@ -18,9 +18,15 @@ class DataParser:
         pass
 
     def feature_select(self):
-        self.dataset_file.loc[:,'attack_cat'].str.strip().fillna('None')
+        label_features = ['sport','dsport','sbytes','sttl','dtcpb','dmeansz','Ltime','Sintpkt','ct_state_ttl','ct_srv_src']
+        cat_features = ['sport','dsport','sbytes','dbytes','sttl','service','smeansz','dmeansz','Stime','Sintpkt']
+
+        return self.dataset_file[label_features], self.dataset_file[cat_features]
         pass
 
+    def label_select(self):
+        return self.dataset_file['Label'], self.dataset_file['attack_cat']
+    
     def format(self):
          # Convert categories to useable data
         self.dataset_file['proto'] = pd.factorize(self.dataset_file['proto'])[0]

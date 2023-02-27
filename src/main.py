@@ -21,7 +21,6 @@ train_set = DataParser("Unified-Train-Set.csv")
 # test_set = DataParser("Unified-Test-Set.csv")
 y_labels = train_set.dataset_file['attack_cat'].unique()
 train_set.label()
-print(y_labels)
 # test_set.label()
 col_names = train_set.dataset_file.columns
 x_names = col_names[1:-2]
@@ -29,10 +28,6 @@ y_names = col_names[-2:]
 X = train_set.dataset_file[x_names]
 y = train_set.dataset_file[y_names]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, train_size=0.8, random_state=42)
-print(X_train)
-print(X_test)
-print(y_train)
-print(y_test)
 y_train_label = y_train['Label']
 y_train_cat = y_train.loc[:,'attack_cat']
 #y_train_cat = train_set.labeler.fit_transform(y_train_cat.fillna('None'))
@@ -70,15 +65,11 @@ print(metrics.classification_report(y_test['Label'], y_pred))
 pipeline.fit(X_train, y_train_cat)
 y_pred = pipeline.predict(X_test)
 y_test_cat = y_test['attack_cat']
-print(y_pred)
-print(y_test_cat)
 print("---Category labeling---")
 print(rfe.get_feature_names_out())
 print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test_cat, y_pred)*100))
 y_pred = train_set.relabel(y_pred)
 y_test_cat = train_set.relabel(y_test_cat)
-print(y_pred)
-print(y_test_cat)
 print(metrics.classification_report(y_test_cat, y_pred,labels=y_labels))
 
 print("END")
