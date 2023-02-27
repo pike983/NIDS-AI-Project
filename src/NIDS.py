@@ -12,9 +12,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.model_selection import train_test_split
 import DataParser
+from sklearn.feature_selection import RFE
+from sklearn.pipeline import Pipeline
 
 le = LabelEncoder()
-k = 40
+k = 60
 p = 1
 weights = 'distance'
 algo = 'auto'
@@ -32,13 +34,84 @@ def main():
     #test_data = pd.read_csv('Unified-Test-Set.csv')
     
     # Parse data
-    train_data = DataParser.DataParser('Unified-Train-Set.csv').dataset_file
+    #train_data = DataParser.DataParser('Unified-Train-Set.csv').dataset_file
     
-    runPCA(train_data)
+    #runPCA(train_data)
 
     #print("INFO")
     #print(data.info())
+    runRFEandKNN()
     
+def runRFEandKNN():
+    train_set = DataParser.DataParser("Unified-Train-Set.csv")
+    # test_set = DataParser("Unified-Test-Set.csv")
+    y_labels = train_set.dataset_file['attack_cat'].unique()
+    train_set.label()
+    print(y_labels)
+    # test_set.label()
+    col_names = train_set.dataset_file.columns
+    x_names = col_names[1:-2]
+    y_names = col_names[-2:]
+    X = train_set.dataset_file[x_names]
+    y = train_set.dataset_file[y_names]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, train_size=0.8, random_state=42)
+    #print(X_train)
+    #print(X_test)
+    #print(y_train)
+    #print(y_test)
+    y_train_label = y_train['Label']
+    y_train_cat = y_train.loc[:,'attack_cat']
+    #y_train_cat = train_set.labeler.fit_transform(y_train_cat.fillna('None'))
+    y_test_label = y_test['Label']
+    y_test_cat = y_test['attack_cat']
+    #y_test_cat = train_set.labeler.fit_transform(y_test_cat.fillna('None'))
+    # X_train = train_set.dataset_file[x_names]
+    # y_train = train_set.dataset_file[y_names]
+    # X_test = test_set.dataset_file[x_names]
+    # y_test = test_set.dataset_file[y_names]
+    ### Code to format and split the data set into test and training sets ###
+    # database = DataParser("UNSW-NB15-BALANCED-TRAIN.csv")#, col_names)
+    # database.format()
+    # database.label()
+    # db = database.dataset_file
+    # ds = DataSplitter(db)
+    # ds.test['attack_cat'] = database.labeler.inverse_transform(ds.test['attack_cat'])
+    # ds.train['attack_cat'] = database.labeler.inverse_transform(ds.train['attack_cat'])
+
+    # pd.DataFrame.to_csv(ds.train, "Unified-Train-Set.csv")
+    # pd.DataFrame.to_csv(ds.test, "Unified-Test-Set.csv")
+    ### RFE Code ###
+    #rfe = RFE(estimator=DecisionTreeClassifier(),n_features_to_select=10)
+    rfe = RFE(estimator=KNeighborsClassifier(n_neighbors=k, weights=weights, algorithm=algo),n_features_to_select=10)
+    #model = DecisionTreeClassifier()
+    model = KNeighborsClassifier(n_neighbors=k, weights=weights, algorithm=algo)
+    #model = KNeighborsClassifier()
+    # Setup pipelines
+    pipeline = Pipeline(steps=[('s',rfe),('m',model)])
+    ## Ghost in the machine
+    #pipeline.fit(X_train, y_train_label)
+    #y_pred = pipeline.predict(X_test)
+    #print("---Attack labeling---")
+    ## train_set.labeler.inverse_transform(y_pred)
+    #print(rfe.get_feature_names_out())
+    #print("Accuracy: {:.2f}%\n".format(accuracy_score(y_test['Label'], y_pred)*100))
+    #print(classification_report(y_test['Label'], y_pred, zero_division=0))
+    pipeline.fit(X_train, y_train_cat)
+    y_pred = pipeline.predict(X_test)
+    y_test_cat = y_test['attack_cat']
+    print(y_pred)
+    print(y_test_cat)
+    print("---Category labeling---")
+    print(rfe.get_feature_names_out())
+    print("Accuracy: {:.2f}%\n".format(accuracy_score(y_test_cat, y_pred)*100))
+    y_pred = train_set.relabel(y_pred)
+    y_test_cat = train_set.relabel(y_test_cat)
+    print(y_pred)
+    print(y_test_cat)
+    print(classification_report(y_test_cat, y_pred,labels=y_labels, zero_division=0))
+
+    print("END")
+
 def runPCA(train_data):
     
     col_names = train_data.columns
