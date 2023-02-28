@@ -36,7 +36,7 @@ def runRFEandRFC(data, task='Label', pickledModel=None, featureSelection = True,
     #pprint(random_grid)
     test_set = data
     col_names = test_set.dataset_file.columns
-    x_names = col_names[1:-2]
+    x_names = col_names[0:-2]
     y_names = col_names[-2:]
     test_features = test_set.dataset_file[x_names]
     test_labels = test_set.dataset_file[y_names]
@@ -47,7 +47,7 @@ def runRFEandRFC(data, task='Label', pickledModel=None, featureSelection = True,
     y_labels = train_set.dataset_file['attack_cat'].unique()
     train_set.label()
     col_names = train_set.dataset_file.columns
-    x_names = col_names[1:-2]
+    x_names = col_names[0:-2]
     y_names = col_names[-2:]
     X = train_set.dataset_file[x_names]
     y = train_set.dataset_file[y_names]
