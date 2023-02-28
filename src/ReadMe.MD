@@ -15,6 +15,6 @@ The classificationTask is the task of the classification.
 The optionalPickledModelPath is the path to the pickled model to be used for classification.
 	If this argument is not provided, the model will be trained from scratch.
 	Otherwise this argument would be the path to the pickled model to be used for classification.
-	These paths are: "RFC_Label_Model.pkl" for Random Forest Classifier for Label Classification, "ABC_Label_Model.pkl" for AdaBoost for Label Classification, "SVM_Label_Model.pkl" for Linear SVM for Label Classification, "RFC_Attack_Model.pkl" for Random Forest Classifier for Attack Classification, "ABC_Attack_Model.pkl" for AdaBoost for Attack Classification, and "SVM_Attack_Model.pkl" for Linear SVM for Attack Classification.
+	These paths are: "RFC_Label_Model.pkl" for Random Forest Classifier for Label Classification, "ABC_Label_Model.pkl" for AdaBoost for Label Classification, "SVC_Label_Model.pkl" for Linear SVM for Label Classification, "RFC_Attack_Model.pkl" for Random Forest Classifier for Attack Classification, "ABC_Attack_Model.pkl" for AdaBoost for Attack Classification, and "SVC_Attack_Model.pkl" for Linear SVM for Attack Classification.
 
 If this is not provided, the model will be trained from scratch.
