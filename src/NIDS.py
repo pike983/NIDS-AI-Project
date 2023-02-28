@@ -36,15 +36,12 @@ def main():
     data.label()
     
     if clMethod == "RFC":
-        print("Random Forest Classifier")
-        print("Feature Selection: False")
-        runRFEandRFC(data, task, pickledModel, False)
-        print("Feature Selection: True")
-        runRFEandRFC(data, task, pickledModel, True, True)
+        print("Classifier: Random Forest Classifier")
+        runRFEandRFC(data, task, pickledModel)
     elif clMethod == "ADB":
-        print("AdaBoost Classifier")
+        print("Classifier: AdaBoost Classifier")
     elif clMethod == "SVM":
-        print("Support Vector Machine")
+        print("Classifier: Support Vector Machine")
     else:
         print("Invalid Classification Method")
         return
