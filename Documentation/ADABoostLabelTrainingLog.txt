@@ -1,0 +1,77 @@
+--- Reading data ---
+--- ADA Boost ---
+{'algorithm': 'SAMME.R', 'base_estimator': 'deprecated', 'estimator': None, 'learning_rate': 1.0, 'n_estimators': 50, 'random_state': None}### RUN STEP 10.00 ###
+--- Label prediction in progress (alpha: 10.00) ---
+--- Prediction analysis ---
+Accuracy: 99.08099134%
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.98      0.99     67234
+           1       0.98      1.00      0.99     67694
+
+    accuracy                           0.99    134928
+   macro avg       0.99      0.99      0.99    134928
+weighted avg       0.99      0.99      0.99    134928
+
+### RUN STEP 100.00 ###
+--- Label prediction in progress (alpha: 100.00) ---
+--- Prediction analysis ---
+Accuracy: 99.21217242%
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99     67234
+           1       0.99      1.00      0.99     67694
+
+    accuracy                           0.99    134928
+   macro avg       0.99      0.99      0.99    134928
+weighted avg       0.99      0.99      0.99    134928
+
+### RUN STEP 1000.00 ###
+--- Label prediction in progress (alpha: 1000.00) ---
+--- Prediction analysis ---
+Accuracy: 99.23218309%
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99     67234
+           1       0.99      1.00      0.99     67694
+
+    accuracy                           0.99    134928
+   macro avg       0.99      0.99      0.99    134928
+weighted avg       0.99      0.99      0.99    134928
+
+### RUN STEP 10000.00 ###
+--- Label prediction in progress (alpha: 10000.00) ---
+--- Prediction analysis ---
+Accuracy: 99.25145263%
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99     67234
+           1       0.99      1.00      0.99     67694
+
+    accuracy                           0.99    134928
+   macro avg       0.99      0.99      0.99    134928
+weighted avg       0.99      0.99      0.99    134928
+
+### RUN STEP 100000.00 ###
+--- Label prediction in progress (alpha: 100000.00) ---
+Traceback (most recent call last):
+  File "c:\Users\argse\OneDrive\Desktop\COMP8085\NIDS-AI-Project\src\GuassTesting.py", line 108, in <module>
+    pipeline.fit(X_train, y_l_train)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\pipeline.py", line 405, in fit
+    self._final_estimator.fit(Xt, y, **fit_params_last_step)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 162, in fit
+    sample_weight, estimator_weight, estimator_error = self._boost(
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 569, in _boost
+    return self._boost_real(iboost, X, y, sample_weight, random_state)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 578, in _boost_real
+    estimator.fit(X, y, sample_weight=sample_weight)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\tree\_classes.py", line 889, in fit
+    super().fit(
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\tree\_classes.py", line 379, in fit
+    builder.build(self.tree_, X, y, sample_weight)
+KeyboardInterrupt
+PS C:\Users\argse\OneDrive\Desktop\COMP8085\NIDS-AI-Project\src> 

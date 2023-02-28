@@ -1,0 +1,76 @@
+Classification Method: ADB
+Classification Task: Label
+Pickled Model: None
+AdaBoost Classifier
+Feature Selection: False
+Accuracy: 99.11%
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99     39358
+           1       0.99      0.99      0.99     39350
+
+    accuracy                           0.99     78708
+   macro avg       0.99      0.99      0.99     78708
+weighted avg       0.99      0.99      0.99     78708
+
+Feature Selection: True
+Accuracy: 99.21%
+
+              precision    recall  f1-score   support
+
+           0       1.00      0.99      0.99     39358
+           1       0.99      1.00      0.99     39350
+
+    accuracy                           0.99     78708
+   macro avg       0.99      0.99      0.99     78708
+weighted avg       0.99      0.99      0.99     78708
+
+-----------------------------------------------------
+
+Prediction File: Unified-Validation-Set.csv
+Classification Method: ADB
+Classification Task: attack_cat
+Pickled Model: None
+AdaBoost Classifier
+Feature Selection: False
+Accuracy: 86.39%
+
+                precision    recall  f1-score   support
+
+       Fuzzers       0.68      0.70      0.69      2958
+      Exploits       0.60      0.53      0.56      5340
+          None       0.99      0.91      0.95     39358
+       Generic       1.00      0.97      0.99     26622
+Reconnaissance       0.25      0.80      0.39      1759
+     Shellcode       0.03      0.60      0.06       176
+      Analysis       0.00      0.00      0.00       328
+      Backdoor       0.00      0.00      0.00       190
+           DoS       0.18      0.00      0.00      1885
+     Backdoors       0.00      0.00      0.00        67
+         Worms       0.00      0.00      0.00        25
+
+      accuracy                           0.86     78708
+     macro avg       0.34      0.41      0.33     78708
+  weighted avg       0.91      0.86      0.88     78708
+
+Feature Selection: True
+Accuracy: 86.16%
+
+                precision    recall  f1-score   support
+
+       Fuzzers       0.68      0.69      0.68      2958
+      Exploits       0.57      0.56      0.56      5340
+          None       1.00      0.89      0.94     39358
+       Generic       1.00      0.97      0.99     26622
+Reconnaissance       0.66      0.34      0.45      1759
+     Shellcode       0.03      0.60      0.06       176
+      Analysis       0.00      0.00      0.00       328
+      Backdoor       0.00      0.00      0.00       190
+           DoS       0.29      0.67      0.41      1885
+     Backdoors       0.00      0.00      0.00        67
+         Worms       0.00      0.00      0.00        25
+
+      accuracy                           0.86     78708
+     macro avg       0.38      0.43      0.37     78708
+  weighted avg       0.92      0.86      0.89     78708

@@ -1,0 +1,196 @@
+--- Reading data ---
+--- ADA Boost ---
+{'algorithm': 'SAMME.R', 'base_estimator': 'deprecated', 'estimator': None, 'learning_rate': 1.0, 'n_estimators': 50, 'random_state': None}### RUN STEP 10.00000000 ###
+--- Label prediction in progress (alpha: 10.00000000) ---
+--- Prediction analysis ---
+Accuracy: 90.08434128%
+
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       557
+           1       0.00      0.00      0.00       403
+           2       0.07      0.92      0.12       112
+           3       0.00      0.00      0.00      3531
+           4       0.45      0.81      0.58      9264
+           5       0.69      0.71      0.70      5201
+           6       1.00      0.97      0.98     45310
+           7       1.00      0.98      0.99     67234
+           8       0.00      0.00      0.00      2966
+           9       0.26      0.76      0.39       314
+          10       0.00      0.00      0.00        36
+
+    accuracy                           0.90    134928
+   macro avg       0.31      0.47      0.34    134928
+weighted avg       0.89      0.90      0.89    134928
+
+### RUN STEP 100.00000000 ###
+--- Label prediction in progress (alpha: 100.00000000) ---
+Traceback (most recent call last):
+  File "c:\Users\argse\OneDrive\Desktop\COMP8085\NIDS-AI-Project\src\GuassTesting.py", line 137, in <module>
+    pipeline.fit(X_train, y_c_train)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\pipeline.py", line 401, in fit
+    Xt = self._fit(X, y, **fit_params_steps)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\pipeline.py", line 359, in _fit
+    X, fitted_transformer = fit_transform_one_cached(
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\joblib\memory.py", line 349, in __call__
+    return self.func(*args, **kwargs)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
+    res = transformer.fit_transform(X, y, **fit_params)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\base.py", line 862, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-pPS C:\Users\argse\OneDrive\Desktop\COMP8085\NIDS-AI-Project\src> & C:/Users/argse/AppData/Local/Microsoft/WindowsApps/python3.10.exe c:/Users/argse/OneDrive/Desktop/COMP8085/NIDS-AI-Project/src/GuassTesting.py
+--- Reading data ---
+--- ADA Boost ---
+{'algorithm': 'SAMME.R', 'base_estimator': 'deprecated', 'estimator': None, 'learning_rate': 1.0, 'n_estimators': 50, 'random_state': None}### RUN STEP 10.00000000 ###
+--- Classification prediction in progress (alpha: 10.00000000) ---
+--- Prediction analysis ---
+Accuracy: 90.08434128%
+
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       557
+           1       0.00      0.00      0.00       403
+           2       0.07      0.92      0.12       112
+           3       0.00      0.00      0.00      3531
+           4       0.45      0.81      0.58      9264
+           5       0.69      0.71      0.70      5201
+           6       1.00      0.97      0.98     45310
+           7       1.00      0.98      0.99     67234
+           8       0.00      0.00      0.00      2966
+           9       0.26      0.76      0.39       314
+          10       0.00      0.00      0.00        36
+
+    accuracy                           0.90    134928
+   macro avg       0.31      0.47      0.34    134928
+weighted avg       0.89      0.90      0.89    134928
+
+### RUN STEP 100.00000000 ###
+--- Classification prediction in progress (alpha: 100.00000000) ---
+--- Prediction analysis ---
+Accuracy: 90.92108384%
+
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+           0       0.00      0.01      0.00       557
+           1       0.00      0.00      0.00       403
+           2       0.00      0.00      0.00       112
+           3       0.00      0.00      0.00      3531
+           4       0.53      0.83      0.65      9264
+           5       0.69      0.74      0.71      5201
+           6       0.99      0.97      0.98     45310
+           7       0.99      0.96      0.98     67234
+           8       0.95      0.68      0.80      2966
+           9       0.17      0.95      0.29       314
+          10       0.00      0.00      0.00        36
+
+    accuracy                           0.91    134928
+   macro avg       0.39      0.47      0.40    134928
+weighted avg       0.91      0.91      0.91    134928
+
+### RUN STEP 1000.00000000 ###
+--- Classification prediction in progress (alpha: 1000.00000000) ---
+--- Prediction analysis ---
+Accuracy: 90.92108384%
+
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+           0       0.00      0.01      0.00       557
+           1       0.00      0.00      0.00       403
+           2       0.00      0.00      0.00       112
+           3       0.00      0.00      0.00      3531
+           4       0.53      0.83      0.65      9264
+           5       0.69      0.74      0.71      5201
+           6       0.99      0.97      0.98     45310
+           7       0.99      0.96      0.98     67234
+           8       0.95      0.68      0.80      2966
+           9       0.17      0.95      0.29       314
+          10       0.00      0.00      0.00        36
+
+    accuracy                           0.91    134928
+   macro avg       0.39      0.47      0.40    134928
+weighted avg       0.91      0.91      0.91    134928
+
+### RUN STEP 10000.00000000 ###
+--- Classification prediction in progress (alpha: 10000.00000000) ---
+--- Prediction analysis ---
+Accuracy: 90.92108384%
+
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with 
+no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+           0       0.00      0.01      0.00       557
+           1       0.00      0.00      0.00       403
+           2       0.00      0.00      0.00       112
+           3       0.00      0.00      0.00      3531
+           4       0.53      0.83      0.65      9264
+           5       0.69      0.74      0.71      5201
+           6       0.99      0.97      0.98     45310
+           7       0.99      0.96      0.98     67234
+           8       0.95      0.68      0.80      2966
+           9       0.17      0.95      0.29       314
+          10       0.00      0.00      0.00        36
+
+    accuracy                           0.91    134928
+   macro avg       0.39      0.47      0.40    134928
+weighted avg       0.91      0.91      0.91    134928
+
+### RUN STEP 100000.00000000 ###
+--- Classification prediction in progress (alpha: 100000.00000000) ---
+Traceback (most recent call last):
+  File "c:\Users\argse\OneDrive\Desktop\COMP8085\NIDS-AI-Project\src\GuassTesting.py", line 137, in <module>
+    pipeline.fit(X_train, y_c_train)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\pipeline.py", line 405, in fit
+    self._final_estimator.fit(Xt, y, **fit_params_last_step)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 162, in fit
+    sample_weight, estimator_weight, estimator_error = self._boost(
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 569, in _boost
+    return self._boost_real(iboost, X, y, sample_weight, random_state)
+  File "C:\Users\argse\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\sklearn\ensemble\_weight_boosting.py", line 621, in _boost_real
+    * xlogy(y_coding, y_predict_proba).sum(axis=1)
+KeyboardInterrupt

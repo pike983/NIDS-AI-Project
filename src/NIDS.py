@@ -1,6 +1,7 @@
 import sys
 from DataParser import DataParser
 from RandomForest import runRFEandRFC
+from AdaBoost import runRFEandABC
 
 
 def main():
@@ -39,7 +40,8 @@ def main():
         print("Classifier: Random Forest Classifier")
         runRFEandRFC(data, task, pickledModel)
     elif clMethod == "ADB":
-        print("Classifier: AdaBoost Classifier")
+        print("Classifier: AdaBoost")
+        runRFEandABC(data, task, pickledModel)
     elif clMethod == "SVM":
         print("Classifier: Support Vector Machine")
     else:
