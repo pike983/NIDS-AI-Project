@@ -38,7 +38,7 @@ def main():
     if clMethod == "RFC":
         print("Classifier: Random Forest Classifier")
         runRFEandRFC(data, task, pickledModel)
-    elif clMethod == "ADB":
+    elif clMethod == "ABC":
         print("Classifier: AdaBoost Classifier")
     elif clMethod == "SVM":
         print("Classifier: Support Vector Machine")
