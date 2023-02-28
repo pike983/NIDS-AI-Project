@@ -44,7 +44,13 @@ class DataParser:
         self.dataset_file['dsport'] = pd.to_numeric(self.dataset_file['dsport'],errors='coerce')
         #self.dataset_file['dsport].dropna(axis=0,inplace=True)
         self.dataset_file.dropna(subset=['sport','dsport'],inplace=True)
-        self.dataset_file.drop(['is_ftp_login', 'srcip', 'dstip'], axis=1, inplace=True)
+        if 'is_ftp_login' in self.dataset_file.columns:
+            self.dataset_file.drop('is_ftp_login',axis=1,inplace=True)
+        if 'srcip' in self.dataset_file.columns:
+            self.dataset_file.drop('srcip',axis=1,inplace=True)
+        if 'dstip' in self.dataset_file.columns:
+            self.dataset_file.drop('dstip',axis=1,inplace=True)
+        #self.dataset_file.drop(['is_ftp_login', 'srcip', 'dstip'], axis=1, inplace=True)
         pass
 
     def label(self):
