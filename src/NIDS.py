@@ -2,6 +2,7 @@ import sys
 from DataParser import DataParser
 from RandomForest import runRFEandRFC
 from AdaBoost import runRFEandABC
+from svm import runLinearSVM
 
 
 def main():
@@ -44,6 +45,7 @@ def main():
         runRFEandABC(data, task, pickledModel)
     elif clMethod == "SVM":
         print("Classifier: Support Vector Machine")
+        runLinearSVM(data, task, pickledModel)
     else:
         print("Invalid Classification Method")
         return
