@@ -7,7 +7,7 @@ E.g.: ```python NIDS.py Unified-Validation-Set.csv RFC attack_cat RFC_Attack_Mod
 The csvFilePath is the path to the csv file that contains the data to be classified.
 
 The classificationMethod is the method to be used for classification.
-	The three options for this argument are: "RFC" for Random Forest Classifier, "ABC" for AdaBoost, and "SVM" for Linear SVM.
+	The three options for this argument are: "RFC" for Random Forest Classifier, "ADB" for AdaBoost, and "SVM" for Linear SVM.
 
 The classificationTask is the task of the classification.
 	The two options for this argument are: "Label" for classifying the label of the data, and "attack_cat" for classifying the attack type of the data.
