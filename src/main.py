@@ -23,7 +23,7 @@ y_labels = train_set.dataset_file['attack_cat'].unique()
 train_set.label()
 # test_set.label()
 col_names = train_set.dataset_file.columns
-x_names = col_names[1:-2]
+x_names = col_names[:-2]
 y_names = col_names[-2:]
 X = train_set.dataset_file[x_names]
 y = train_set.dataset_file[y_names]
@@ -50,6 +50,7 @@ y_test_cat = y_test['attack_cat']
 # pd.DataFrame.to_csv(ds.train, "Unified-Train-Set.csv")
 # pd.DataFrame.to_csv(ds.test, "Unified-Test-Set.csv")
 ### RFE Code ###
+print("--- n = 10 ---")
 rfe = RFE(estimator=DecisionTreeClassifier(),n_features_to_select=10)
 model = DecisionTreeClassifier()
 # Setup pipelines
@@ -71,6 +72,27 @@ print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test_cat, y_pred)*10
 y_pred = train_set.relabel(y_pred)
 y_test_cat = train_set.relabel(y_test_cat)
 print(metrics.classification_report(y_test_cat, y_pred,labels=y_labels))
+
+# print("--- n = 10 ---")
+# y_test_cat = y_test['Label']
+# rfe = RFE(estimator=DecisionTreeClassifier(),n_features_to_select=10)
+# model=DecisionTreeClassifier()
+# pipeline.fit(X_train, y_train_label)
+# y_pred = pipeline.predict(X_test)
+# print("---Attack labeling---")
+# # train_set.labeler.inverse_transform(y_pred)
+# print(rfe.get_feature_names_out())
+# print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test['Label'], y_pred)*100))
+# print(metrics.classification_report(y_test['Label'], y_pred))
+# pipeline.fit(X_train, y_train_cat)
+# y_pred = pipeline.predict(X_test)
+# y_test_cat = y_test['attack_cat']
+# print("---Category labeling---")
+# print(rfe.get_feature_names_out())
+# print("Accuracy: {:.2f}%\n".format(metrics.accuracy_score(y_test_cat, y_pred)*100))
+# y_pred = train_set.relabel(y_pred)
+# y_test_cat = train_set.relabel(y_test_cat)
+# print(metrics.classification_report(y_test_cat, y_pred,labels=y_labels))
 
 print("END")
 
